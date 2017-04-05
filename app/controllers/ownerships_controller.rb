@@ -38,15 +38,12 @@ class OwnershipsController < ApplicationController
     # TODO 紐付けの解除。 
     # params[:type]の値にHave itボタンが押された時には「Have」,
     # Want itボタンが押された時には「Want」が設定されています。
-    if params[:type] == 'Have It'
+    if params[:type] == 'Have'
       current_user.unhave(@item)
-    elsif params[:type] == 'Want It'
+    elsif params[:type] == 'Want'
       current_user.unwant(@item)
     end
   end
-  
-  def destroy
-    @item = Item.find(params[:item_id])
 
 
   # create_table "items", force: :cascade do |t|
@@ -59,4 +56,4 @@ class OwnershipsController < ApplicationController
   #   t.datetime "created_at",      null: false
   #   t.datetime "updated_at",      null: false
   #   t.string   "item_code"
-  # end
+end
