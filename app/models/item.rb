@@ -7,6 +7,10 @@ class Item < ActiveRecord::Base
   
   has_many :haves, class_name: "Have", foreign_key: "item_id", dependent: :destroy
   has_many :have_users , through: :haves, source: :user
+  
+  def self.ranking_items(item_ids)
+    self.find(item_ids).sort_by{ |o| item_ids.index(o.id) }
+  end
 end
 
   #user.rb
