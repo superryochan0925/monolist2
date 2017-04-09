@@ -1,6 +1,6 @@
 <div class="container">
   <div class="container-inner inner-default clearfix">
-    <% items.each do |item| %>
+    <% items.each.with_index(1) do |item, index| %>
       <div class="item-box">
         <div class="image">
           <div class="img-wrap">
@@ -13,6 +13,7 @@
         </div>
         <div class="detail">
           <p class="title">
+            <%= "#{index}位：" if params[:controller] == 'ranking' %>
             <%= item.title %>
           </p>
         </div>
